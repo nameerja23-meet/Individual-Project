@@ -47,13 +47,13 @@ def signin():
 			return redirect(url_for('index'))
 		except:
 			error = 'Authentication failed'
-	return render_template('signup.html', error = error)
+	return render_template('signup.html')
 
 @app.route('/index')
 def index():
 	return render_template('index.html')
 
-@app.route('/expression_warrior')
+@app.route('/react_attack')
 def game():
 	return render_template('game.html')
 if __name__ == '__main__':
