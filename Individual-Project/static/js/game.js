@@ -1,9 +1,10 @@
 const canvas = document.querySelector('canvas')
 const context = canvas.getContext('2d')
 
-canvas.width = 1280
-canvas.height = 720
-
+canvas.width =window.outerWidth
+canvas.height = window.outerHeight
+console.log(window.height)
+console.log(window.outerWidth)
 class Arrows{
     constructor({x,y, sprite, direction}){
         this.width = 100
@@ -85,6 +86,7 @@ function generateArrow(){
 let time = 0
 let score = 0
 let lives = 3
+context.font = "50px serif"
 let keyPressed = ''
 document.addEventListener('keydown', (event) => {
     keyPressed = event.key;
@@ -133,10 +135,10 @@ function animate(){
             score +=1
         }
         time +=2
-        context.fillText("Score:" +score.toString(), 900, 50)
+        context.fillText("Score:" +score.toString(), 1090, 50)
     }
     else{
-        context.fillText("GAME OVER", 640, 360)
+        context.fillText("GAME OVER", 525, 360)
     }
     
 }
