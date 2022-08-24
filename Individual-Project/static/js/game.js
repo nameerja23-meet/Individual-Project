@@ -91,6 +91,9 @@ let keyPressed = ''
 document.addEventListener('keydown', (event) => {
     keyPressed = event.key;
   })
+document.addEventListener('keyup',(event) =>{
+    keyPressed = ""
+})
 
 function animate(){
 	requestAnimationFrame(animate)
@@ -116,26 +119,23 @@ function animate(){
             }
         })
         if ((arrows[0].pos.y<550) && (arrows[0].pos.y > 450) && (arrows[0].direction == "left") && (keyPressed == 'ArrowLeft')){
+            score = score + (100-(Math.abs(arrows[0].pos.y-500)))
             arrows.shift()
-            score +=1
         }
         if ((arrows[0].pos.y<550) && (arrows[0].pos.y > 450) && (arrows[0].direction == "right") && (keyPressed == 'ArrowRight')){
-            console.log("test")
+            score = score + (100-(Math.abs(arrows[0].pos.y-500)))
             arrows.shift()
-            score +=1
         }
         if ((arrows[0].pos.y<600) && (arrows[0].pos.y > 500) && (arrows[0].direction == "down" && (keyPressed == 'ArrowDown'))){
-            console.log("test")
+            score = score + (100-(Math.abs(arrows[0].pos.y-550)))
             arrows.shift()
-            score+=1
         }
         if ((arrows[0].pos.y<600) && (arrows[0].pos.y > 500) && (arrows[0].direction == "up") && (keyPressed == 'ArrowUp')){
-            console.log("test")
+            score = score + (100-(Math.abs(arrows[0].pos.y-550)))
             arrows.shift()
-            score +=1
         }
-        time +=2
-        context.fillText("Score:" +score.toString(), 1090, 50)
+        time +=1
+        context.fillText("Score:" +score.toString(), 800, 50)
     }
     else{
         context.fillText("GAME OVER", 525, 360)
