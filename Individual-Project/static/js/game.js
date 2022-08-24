@@ -17,7 +17,7 @@ class Arrows{
         this.sprite= sprite
         this.direction = direction
     }
-    draw(){
+    draw(){((((100-((Math.abs(arrows[0].pos.y-550))))/50))*10)
         context.drawImage(this.sprite, this.pos.x, this.pos.y, this.width, this.height)
     }
     update(){
@@ -89,7 +89,7 @@ let lives = 3
 context.font = "50px serif"
 let keyPressed = ''
 document.addEventListener('keydown', (event) => {
-    keyPressed = event.key;
+    keyPressed = event.key
   })
 document.addEventListener('keyup',(event) =>{
     keyPressed = ""
@@ -134,10 +134,11 @@ function animate(){
             score = score + (100-(Math.abs(arrows[0].pos.y-550)))
             arrows.shift()
         }
-        time +=1
-        context.fillText("Score:" +score.toString(), 800, 50)
+        time +=2
+        context.fillText("Score:" +score.toString(), 900, 50)
     }
     else{
+        (100-(Math.abs(arrows[0].pos.y-550)))
         context.fillText("GAME OVER", 525, 360)
     }
     
